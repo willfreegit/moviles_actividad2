@@ -1,0 +1,20 @@
+//TODO 1 protocol buffer data object definitions
+
+syntax = "proto3";
+
+option java_package = "com.example.datastoreapp";
+option java_multiple_files = true;
+
+message AnimalStore {
+  bool initialized = 1;
+  repeated StoredAnimal animals = 2;
+}
+
+message StoredAnimal{
+  int32 id = 1;
+  string name = 2;
+  string latinName = 3;
+  string geoRange = 4;
+  string diet = 5;
+  string imageUrl = 6;
+}
