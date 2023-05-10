@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdk 33
 
+    dataBinding {
+        android.buildFeatures.dataBinding = true
+    }
+
     defaultConfig {
         applicationId "com.example.actividad2"
         minSdk 21
@@ -70,6 +74,11 @@ dependencies {
     // TODO 4 protocol buffer runtime libraries
     // protobuf
     implementation  "com.google.protobuf:protobuf-javalite:3.19.4"
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
 }
 
