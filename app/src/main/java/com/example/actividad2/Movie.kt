@@ -26,7 +26,7 @@ data class Movie(
 
     }
 
-    fun asStoredAnimal(): StoredMovie {
+    fun asStoredMovie(): StoredMovie {
         return StoredMovie.newBuilder()
             .setId(id)
             .setName(name)

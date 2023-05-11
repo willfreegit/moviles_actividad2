@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel(private val model: Model) : ViewModel() {
 
-    val animals = model.animals
+    val movies = model.movies
 
-    fun removeAnimal(animal: Animal) {
-        model.removeAnimal(animal)
+    fun removeMovie(movie: Movie) {
+        model.removeMovie(movie)
     }
 
 }

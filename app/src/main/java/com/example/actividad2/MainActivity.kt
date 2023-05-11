@@ -1,61 +1,56 @@
 package com.example.actividad2
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
-import com.example.actividad2.ws.ApiAdapter
-import com.example.actividad2.ws.ApiService
 import com.github.ajalt.timberkt.d
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import retrofit2.create
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainActivityViewModel by viewModel()
 
-    private lateinit var animalAdapter: AnimalAdapter
+    private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         d { "onCreate" }
 
-        val movies = ApiAdapter.getInstance().create(ApiService::class.java)
+        /*val movies = ApiAdapter.getInstance().create(ApiService::class.java)
         GlobalScope.launch {
             val result = movies.getMovies()
             println("peliculas:")
             for(x in result){
                 println(x.name)
             }
-        }
+        }*/
 
         // crate the adapter
-        animalAdapter = AnimalAdapter(
-            animalSelected = {
-                d { "Selected animal $it!!!" }
+        movieAdapter = MovieAdapter(
+            movieSelected = {
+                d { "Selected movie $it!!!" }
             },
-            removeAnimal = {
-                d { "Remove animal $it !!!" }
-                removeAnimal(it)
+            removeMovie = {
+                d { "Remove movie $it !!!" }
+                removeMovie(it)
             }
         )
 
         // set the adapter
-        findViewById<RecyclerView>(R.id.animalList).adapter = animalAdapter
+        findViewById<RecyclerView>(R.id.movieList).adapter = movieAdapter
 
         // subscribe to data changes
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED){
 
                 // collect list of Animal's
-                viewModel.animals.collect {
+                viewModel.movies.collect {
                     // submit list
-                    animalAdapter.submitList(it)
+                    movieAdapter.submitList(it)
                 }
 
             }
@@ -63,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun removeAnimal(animal: Animal) {
-        viewModel.removeAnimal(animal)
+    private fun removeMovie(movie: Movie) {
+        viewModel.removeMovie(movie)
     }
 }

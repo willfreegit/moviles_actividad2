@@ -2,23 +2,23 @@ package com.example.actividad2
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
-import com.example.datastoreapp.AnimalStore
+import com.example.datastoreapp.MovieStore
 import com.google.protobuf.InvalidProtocolBufferException
 import java.io.InputStream
 import java.io.OutputStream
 
 //TODO 6 create the serializer (proto datastore)
-object AnimalStoreSerializer : Serializer<AnimalStore> {
+object MovieStoreSerializer : Serializer<MovieStore> {
 
-    override val defaultValue: AnimalStore = AnimalStore.getDefaultInstance()
+    override val defaultValue: MovieStore = MovieStore.getDefaultInstance()
 
-    override suspend fun readFrom(input: InputStream): AnimalStore {
+    override suspend fun readFrom(input: InputStream): MovieStore {
         try {
-            return AnimalStore.parseFrom(input)
+            return MovieStore.parseFrom(input)
         } catch (exception: InvalidProtocolBufferException) {
             throw CorruptionException("Cannot read proto.", exception)
         }
     }
 
-    override suspend fun writeTo(t: AnimalStore, output: OutputStream) = t.writeTo(output)
+    override suspend fun writeTo(t: MovieStore, output: OutputStream) = t.writeTo(output)
 }
