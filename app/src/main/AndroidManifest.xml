@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Actividad2_Monge_Albuja"
         tools:targetApi="31">
         <activity
+            android:name=".Details"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
