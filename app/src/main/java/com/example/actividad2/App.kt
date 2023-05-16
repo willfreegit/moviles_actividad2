@@ -21,7 +21,7 @@ class App : Application() {
 
     //TODO 7 create the single instance of the animalDataStore
     private val moviesDataStore: DataStore<MovieStore> by dataStore(
-        fileName = "animals.pb",
+        fileName = "movies.pb",
         serializer = MovieStoreSerializer
     )
 

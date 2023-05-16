@@ -17,15 +17,16 @@ class Details : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        val result: TextView = findViewById(R.id.result)
+        val movieName: TextView = findViewById(R.id.name)
+        val moviePlot: TextView = findViewById(R.id.plot)
         val back: Button = findViewById(R.id.back)
         val movieGif: ImageView = findViewById(R.id.movieGif)
         val name = intent.getStringExtra("name");
+        val plot = intent.getStringExtra("plot");
         val gif = intent.getStringExtra("gif");
 
-        //val movie = movies.movies.value.get(position);
-
-        result.setText(name);
+        movieName.setText(name);
+        moviePlot.setText(plot);
         Picasso.get()
             .load(Uri.parse(gif))
             .resize(200, 200)

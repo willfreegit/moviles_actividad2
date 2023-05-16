@@ -21,15 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         d { "onCreate" }
 
-        /*val movies = ApiAdapter.getInstance().create(ApiService::class.java)
-        GlobalScope.launch {
-            val result = movies.getMovies()
-            println("peliculas:")
-            for(x in result){
-                println(x.name)
-            }
-        }*/
-
         // crate the adapter
         movieAdapter = MovieAdapter(
             movieSelected = {
@@ -70,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Details::class.java)
         intent.putExtra("name", movie.name)
         intent.putExtra("gif", movie.gif)
+        intent.putExtra("plot", movie.plot)
         startActivity(intent)
     }
 }

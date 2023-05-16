@@ -49,8 +49,7 @@ class Model(private val moviesDataStore: DataStore<MovieStore>) {
             .build()
         val type = Types.newParameterizedType(List::class.java, Movie::class.java)
         val adapter = moshi.adapter<List<Movie>>(type)
-
-        // create the storedAnimals list
+        
         val movies = ApiAdapter.getInstance().create(ApiService::class.java)
         GlobalScope.launch {
             val moviesFromJson: List<Movie>  = movies.getMovies()
