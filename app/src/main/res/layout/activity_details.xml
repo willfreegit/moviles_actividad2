@@ -9,8 +9,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="453dp"
         android:orientation="vertical">
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,37 +20,51 @@
             app:strokeColor="@color/teal_700"
             app:strokeWidth="1dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/result"
-                android:inputType="number"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            <ImageView
+                android:id="@+id/movieGif"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp" />
+                android:layout_height="228dp"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/camera_image"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/back"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="@color/purple_700"
-                android:text="@string/back"
-                android:textSize="20dp"
-                app:strokeColor="@color/white"
-                app:strokeWidth="2dp" />
-
         </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/purple_700"
+            android:text="@string/back"
+            android:textSize="20dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp" />
     </LinearLayout>
 
 

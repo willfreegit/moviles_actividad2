@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso
 class MovieAdapter(
     val movieSelected: (Movie) -> Unit,
     val removeMovie: (Movie) -> Unit,
+    val clicMovie: (Movie) -> Unit
 ) :
     ListAdapter<Movie, MovieViewHolder>(MovieDiffCallback) {
 
@@ -27,7 +28,8 @@ class MovieAdapter(
         return MovieViewHolder(
             view,
             { movieSelected(getItem(it)) },
-            { removeMovie(getItem(it)) }
+            { removeMovie(getItem(it)) },
+            { clicMovie(getItem(it))}
         )
     }
 
@@ -41,7 +43,8 @@ class MovieAdapter(
 class MovieViewHolder(
     view: View,
     movieSelected: (Int) -> Unit,
-    removeMovie: (Int) -> Unit
+    removeMovie: (Int) -> Unit,
+    clicMovie: (Int) -> Unit
 ) : RecyclerView.ViewHolder(view) {
     private val nameTextView: TextView = view.findViewById(R.id.movieName)
     private val movieReleaseTextView: TextView = view.findViewById(R.id.movieRelease)
@@ -57,9 +60,7 @@ class MovieViewHolder(
             removeMovie(adapterPosition)
         }
         moviePosterImage.setOnClickListener {
-            val intent = Intent(view.context, Details::class.java)
-            intent.putExtra("result", "hello")
-            view.context.startActivity(intent)
+            clicMovie(adapterPosition)
         }
     }
 

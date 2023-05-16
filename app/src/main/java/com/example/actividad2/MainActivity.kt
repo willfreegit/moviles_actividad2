@@ -1,5 +1,6 @@
 package com.example.actividad2
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -37,6 +38,9 @@ class MainActivity : AppCompatActivity() {
             removeMovie = {
                 d { "Remove movie $it !!!" }
                 removeMovie(it)
+            },
+            clicMovie = {
+                clicMovie(it)
             }
         )
 
@@ -60,5 +64,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun removeMovie(movie: Movie) {
         viewModel.removeMovie(movie)
+    }
+
+    private fun clicMovie(movie: Movie){
+        val intent = Intent(this, Details::class.java)
+        intent.putExtra("name", movie.name)
+        intent.putExtra("gif", movie.gif)
+        startActivity(intent)
     }
 }
