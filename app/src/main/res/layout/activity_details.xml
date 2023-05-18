@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".Details">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="578dp"
+        android:layout_height="628dp"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
@@ -20,12 +20,12 @@
             app:strokeColor="@color/teal_700"
             app:strokeWidth="1dp">
 
-            <ImageView
+            <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/movieGif"
                 android:layout_width="match_parent"
                 android:layout_height="228dp"
                 android:layout_marginBottom="16dp"
-                android:scaleType="centerCrop"
+                android:background="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +45,7 @@
         <TextView
             android:id="@+id/plot"
             android:layout_width="match_parent"
-            android:layout_height="156dp"
+            android:layout_height="200dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="" />
@@ -76,4 +76,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</ScrollView>
